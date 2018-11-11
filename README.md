@@ -10,3 +10,5 @@ INSTRUCTIONS
 ----------------------------------
 After the program is started, users will be asked to select one of three games that they would
 like to use a generator for.
+
+While in any generator, users can type "info" for a quick list of commands that can be utilized to alter stats. 
