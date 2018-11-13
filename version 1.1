@@ -1,0 +1,324 @@
+#Rocket Propelled Generic Generator v.1
+#This program is a base character generator that can be used to generate character's for Dark Souls 3, Fallout New Vegas, and Skyrim
+#by Justin Smith
+
+def print_menu():
+        print("Welcome to the Rocket Propelled Generic Generator!")
+        print("--------------------------------------------")
+        print("Please select a game you would like to generate a character for")
+        print("*****************************")
+        print("Dark Souls 3 [1]")
+        print("Elder Scrolls 5: Skyrim [2]")
+        print("Fallout New Vegas [3]")
+        print("Exit Program [4]")
+        print("*****************************")
+        print("*****************************")
+        print("Please input the number of the game you wish to choose...")
+
+def start_question():
+        print("In order to help build your base character, please answer the following questions...")
+
+        print("What would you like to name your character?")
+
+        print("Is your character male or female?")
+
+def dark_soul3():
+        print("DARK SOULS 3")
+        print("***************")
+        print("***************")
+        ds3_name = "Ash"
+        ds3_class = "Knight"
+        ds3_gender = "Male"
+        ds3_covenant = "Warriors of Sunlight"
+
+def elder_scrolls5():
+        print("ELDER SCROLLS 5: SKYRIM")
+        print("***************")
+        print("***************")
+
+def fallout_vegas():
+    fnv_name = str("Courier")
+    fnv_gender = str("Male")
+    fnv_faction = str("NCR")
+    fnv_strength = 5
+    fnv_perception = 5
+    fnv_endurance = 5
+    fnv_charisma = 5
+    fnv_intel = 5
+    fnv_agility = 5
+    fnv_luck = 5
+    fnv_tagSkills = ["Melee Weapons", "Sneak", "Medicine"]
+    fnv_traits = ["Heavy Handed", "Kamikaze"]
+
+    def fnv_calc_points():
+        fnv_totalpoints = fnv_strength + fnv_perception + fnv_endurance + fnv_charisma + fnv_intel + fnv_agility + fnv_luck
+
+        return fnv_totalpoints
+
+    def fnv_info():
+        print '*****'
+        print 'Fallout New Vegas Generator Command List'
+        print '*****'
+        print '"menu" = Returns you to the RPG Generator menu'
+        print '"stats" = Redraw stats'
+        print '"points" = Displays available and distributed skill points'
+        print '"name" = Edit character name'
+        print '"gender" = Edit character gender'
+        print '"faction" = Edit character faction'
+        print '"strength" = Edit strength stat'
+        print '"perception" = Edit perception stat'
+        print '"endurance" = Edit endurance stat'
+        print '"charisma" = Edit charisma stat'
+        print '"intelligence" = Edit intelligence stat'
+        print '"agility" = Edit agility stat'
+        print '"luck" = Edit luck stat'
+
+
+    def fnv_editname():
+        print("What would you like to change your character's name to?")
+        print 'Current Name: ', fnv_name
+        new_fnv_name = (raw_input('New Name: '))
+        print "you're character's name has been changed to: "
+        return new_fnv_name
+
+    def fnv_editgend():
+        print("What gender would you like your character to be?")
+        print 'Current Gender: ', fnv_gender
+        new_fnv_gender = raw_input('New Gender: ')
+
+        while new_fnv_gender != 'male' and new_fnv_gender != 'female':
+            print 'please input "male" or "female"'
+            new_fnv_gender = raw_input('New Gender: ')
+
+        return new_fnv_gender
+
+    def fnv_editfact():
+        print("What faction would you like your character to be part of?")
+        print('Type "options" instead of a faction name to display a list of available factions')
+        print 'Current Faction: ', fnv_faction
+        new_fnv_faction = raw_input('New Faction: ')
+
+        if new_fnv_faction == "options":
+            print 'Brotherhood of Steel = Type "bos"'
+            print 'Caesars Legion = Type "legion"'
+            print 'Great Khans = Type "khan"'
+            print 'NCR = Type "ncr"'
+            print 'Followers of the Apocalypse = Type "fota"'
+            print 'Boomers = Type "boomers"'
+            print 'Powder Gangers = Type "powder"'
+            print 'White Glove Society = Type "glove"'
+            new_fnv_faction = "None"
+
+        return new_fnv_faction
+
+    def fnv_editstrength():
+        print("What would you like to change the strength stat too?")
+        print 'Current strength stat: ', fnv_strength
+        new_fnv_strength = input('New Strength stat: ')
+
+        if new_fnv_strength > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_strength = 10
+
+        if (fnv_calc_points() - fnv_strength + new_fnv_strength) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_strength = fnv_strength
+
+        return new_fnv_strength
+
+    def fnv_editperception():
+        print("What would you like to change the perception stat too?")
+        print 'Current perception stat: ', fnv_perception
+        new_fnv_perception = input('New Perception stat: ')
+
+        if new_fnv_perception > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_perception = 10
+
+        if (fnv_calc_points() - fnv_perception + new_fnv_perception) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_perception = fnv_perception
+
+        return new_fnv_perception
+
+    def fnv_editendurance():
+        print("What would you like to change the endurance stat too?")
+        print 'Current endurance stat: ', fnv_endurance
+        new_fnv_endurance = input('New Endurance stat: ')
+
+        if new_fnv_endurance > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_endurance = 10
+
+        if (fnv_calc_points() - fnv_endurance + new_fnv_endurance) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_endurance = fnv_endurance
+
+        return new_fnv_endurance
+
+
+    def fnv_editcharisma():
+        print("What would you like to change the charisma stat too?")
+        print 'Current charisma stat: ', fnv_charisma
+        new_fnv_charisma = input('New Charisma stat: ')
+
+        if new_fnv_charisma > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_charisma = 10
+
+        if (fnv_calc_points() - fnv_charisma + new_fnv_charisma) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_charisma = fnv_charisma
+
+        return new_fnv_charisma
+
+    def fnv_editintelligence():
+        print("What would you like to change the intelligence stat too?")
+        print 'Current intelligence stat: ', fnv_intel
+        new_fnv_intel = input('New Intelligence stat: ')
+
+        if new_fnv_intel > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_intel = 10
+
+        if (fnv_calc_points() - fnv_intel + new_fnv_intel) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_intel = fnv_intel
+
+        return new_fnv_intel
+
+    def fnv_editagility():
+        print("What would you like to change the agility stat too?")
+        print 'Current agility stat: ', fnv_agility
+        new_fnv_agility = input('New Agility stat: ')
+
+        if new_fnv_agility > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_agility = 10
+
+        if (fnv_calc_points() - fnv_agility + new_fnv_agility) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_agility = fnv_agility
+
+        return new_fnv_agility
+
+    def fnv_editluck():
+        print("What would you like to change the luck stat too?")
+        print 'Current luck stat: ', fnv_luck
+        new_fnv_luck = input('New Luck stat: ')
+
+        if new_fnv_luck > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_luck = 10
+
+        if (fnv_calc_points() - fnv_luck + new_fnv_luck) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_luck = fnv_luck
+
+        return new_fnv_luck
+
+    def fnv_printstats():
+        print 'Name: ', fnv_name
+        print 'Gender: ', fnv_gender
+        print 'Faction: ', fnv_faction
+        print("*********")
+        print "S.P.E.C.I.A.L: "
+        print 'Strength: ', fnv_strength
+        print 'Perception: ', fnv_perception
+        print 'Endurance: ', fnv_endurance
+        print 'Charisma: ', fnv_charisma
+        print 'Intelligence: ', fnv_intel
+        print 'Agility: ', fnv_agility
+        print 'Luck: ', fnv_luck
+        print 'Tagged Skills: ', fnv_tagSkills
+        print 'Starting Traits: ', fnv_traits
+        print ''
+        print 'Please choose what attributes you wish to edit'
+        print '(For a chart of commands that can be inputted, type "info")'
+
+    fnv_input = ""
+
+
+    print("FALLOUT NEW VEGAS")
+    print("***************")
+    print("***************")
+    fnv_printstats()
+    print '(if you wish to exit the fallout new vegas generator and return to the menu, type "menu")'
+    while fnv_input != "menu":
+            fnv_input = raw_input()
+
+            if fnv_input == "info":
+                fnv_info()
+            elif fnv_input == "name":
+                fnv_name = fnv_editname()
+                print(fnv_name)
+            elif fnv_input == "gender":
+                fnv_gender = fnv_editgend()
+            elif fnv_input == "faction":
+                fnv_faction = fnv_editfact()
+            elif fnv_input == "strength":
+                fnv_strength = fnv_editstrength()
+            elif fnv_input == "perception":
+                fnv_perception = fnv_editperception()
+            elif fnv_input == "endurance":
+                fnv_endurance = fnv_editendurance()
+            elif fnv_input == "charisma":
+                fnv_charisma = fnv_editcharisma()
+            elif fnv_input == "intelligence":
+                fnv_intel = fnv_editintelligence()
+            elif fnv_input == "agility":
+                fnv_agility = fnv_editagility()
+            elif fnv_input == "luck":
+                fnv_luck = fnv_editluck()
+            elif fnv_input == "stats":
+                fnv_printstats()
+            elif fnv_input == "points":
+                print 'Number of points available: ', 40 - fnv_calc_points()
+                print 'Points distributed: ', fnv_calc_points()
+            elif fnv_input == "war":
+                print 'War. War never changes.'
+                print 'It was here you were born. It is here you will die.'
+            elif fnv_input == "big iron":
+                print 'https://bit.ly/2Pg2k8s'
+            elif fnv_input == "van der linde":
+                print "By this time next year, we'll be growing mangoes in Tahiti."
+                print "We just need one more big score and we're gone."
+                print "Just have some goddamn faith!"
+                fnv_name = "Dutch van der Linde"
+                fnv_faction = "van der Linde gang"
+
+
+
+
+
+
+
+def gameselection():
+        gamenum = 0
+
+        while gamenum != 4:
+            print_menu()
+
+            gamenum = 0
+
+            gamenum = input('Input: ')
+
+            print(gamenum)
+
+            while gamenum > 4 or gamenum < 1:
+                print("please input a number that matches a game listed above")
+                gamenum = input('Input: ')
+
+            if gamenum == 1:
+                dark_soul3()
+            elif gamenum == 2:
+                elder_scrolls5()
+            elif gamenum == 3:
+                fallout_vegas()
+            elif gamenum == 4:
+                break
+
+
+
+
+gameselection()
