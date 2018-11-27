@@ -114,10 +114,12 @@ def bloodborne():
             print("What gender would you like your character to be?")
             print 'Current Gender: ', bb_gender
             new_bb_gender = raw_input('New Gender: ')
+            new_bb_gender = new_bb_gender.lower()
 
             while new_bb_gender != 'male' and new_bb_gender != 'female':
                 print 'please input "male" or "female"'
                 new_bb_gender = raw_input('New Gender: ')
+                new_bb_gender = new_bb_gender.lower()
 
             return new_bb_gender
 
@@ -201,9 +203,12 @@ def fallout_vegas():
         print 'Current Gender: ', fnv_gender
         new_fnv_gender = raw_input('New Gender: ')
 
+        new_fnv_gender = new_fnv_gender.lower()
+
         while new_fnv_gender != 'male' and new_fnv_gender != 'female':
             print 'please input "male" or "female"'
             new_fnv_gender = raw_input('New Gender: ')
+            new_fnv_gender = new_fnv_gender.lower()
 
         return new_fnv_gender
 
