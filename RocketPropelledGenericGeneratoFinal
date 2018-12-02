@@ -1,0 +1,715 @@
+#Rocket Propelled Generic Generator v.1
+#**************************************
+#This program is a base character generator that can be used to generate character's for Bloodborne and Fallout New Vegas
+#Type "info" after entering a generator to display a list of available commands
+#**************************************
+#by Justin Smith
+
+def print_menu():
+        print("Welcome to the Rocket Propelled Generic Generator!")
+        print("--------------------------------------------")
+        print("Please select a game you would like to generate a character for")
+        print("*****************************")
+        print("Bloodborne [1]")
+        print("Fallout New Vegas [2]")
+        print("Exit Program [3]")
+        print("*****************************")
+        print("*****************************")
+        print("Please input the number of the game you wish to choose...")
+
+
+#BLOODBORNE GENERATOR
+
+def bloodborne():
+        bb_name = "Hunter"
+        bb_origin = "Waste of Skin"
+        bb_gender = "Male"
+        bb_bloodechoes = 0
+        bb_vitality = 10
+        bb_endurance = 9
+        bb_strength = 10
+        bb_skill = 9
+        bb_bloodtinge = 7
+        bb_arcane = 9
+        bb_hp = 500
+        bb_stamina = 270
+        bb_discovery = 103
+
+        def bb_info():
+            print '*****'
+            print 'Bloodborne Generator Command List'
+            print '*****'
+            print '"menu" = Returns you to the RPG Generator menu'
+            print '"stats" = Redraw stats'
+            print '"name" = Edit character name'
+            print '"origin" = Edit character origin'
+            print '"gender" = Edit character gender'
+            print '"bloodechoes" - Edit amount of bloodechoes(currency)'
+            print '"vitality" - Edit character vitality stat'
+            print '"endurance" - Edit character endurance stat'
+            print '"strength" - Edit character strength stat'
+            print '"skill" - Edit character skill stat'
+            print '"bloodtinge" - Edit character bloodtinge stat'
+            print '"arcane" - Edit character arcane stat'
+        bb_input = 0
+
+        def bb_printstats():
+            print 'Name: ',bb_name
+            print 'Origin: ',bb_origin
+            print 'Gender: ',bb_gender
+            print 'Bloodechoes: ',bb_bloodechoes
+            print 'Vitality: ',bb_vitality
+            print 'Endurance: ',bb_endurance
+            print 'Strength: ',bb_strength
+            print 'Skill: ',bb_skill
+            print 'Bloodtinge: ',bb_bloodtinge
+            print 'Arcane: ',bb_arcane
+            print 'HP: ',bb_hp
+            print 'Stamina: ', bb_stamina
+            print 'Discovery: ',bb_discovery
+
+        def bb_calcstats():
+            bb_calc = bb_vitality + bb_endurance + bb_strength + bb_skill + bb_bloodtinge + bb_arcane
+
+            return bb_calc
+
+        def bb_editname():
+            print("What would you like to change your character's name to?")
+            print 'Current Name: ', bb_name
+            new_bb_name = (raw_input('New Name: '))
+            print "you're character's name has been changed."
+
+            return new_bb_name
+
+        def bb_editorigin():
+            print("What origin would you like your character to have?")
+            print('For a list of origins type "options"')
+            print 'Current Origin: ', bb_origin
+            new_bb_origin = raw_input('New Origin: ')
+
+            if new_bb_origin == "options":
+                print "Origin Options: "
+                print 'Milquetoast - "Ordinary, happy upbringing. All attributes average."'
+                print 'Lone Survivor - "Lone survivor of a lost hamlet. High life essence and vigor."'
+                print 'Troubled Childhood - "Suffered misfortune in youth. Highly resilient as a result."'
+                print 'Violent Past - "Terribly violent past. Rash, but stronger for it."'
+                print 'Professional - "Born specialist, fit for sleuthing or academia."'
+                print 'Military Veteran - "Experienced in war. A soldier with skill."'
+                print 'Nobel Scion - "Scion to a respectable line with faith in your pedigree."'
+                print 'Cruel fate - "Faced terrible hardships, but now confident in your purpose."'
+                print 'Waste of Skin - "You are nothing. Talentless. You shouldnt have been born."'
+                new_bb_origin = raw_input('New Origin: ')
+
+            return new_bb_origin
+
+        def bb_editgend():
+            print("What gender would you like your character to be?")
+            print 'Current Gender: ', bb_gender
+            new_bb_gender = raw_input('New Gender: ')
+            new_bb_gender = new_bb_gender.lower()
+
+            while new_bb_gender != 'male' and new_bb_gender != 'female':
+                print 'please input "male" or "female"'
+                new_bb_gender = raw_input('New Gender: ')
+                new_bb_gender = new_bb_gender.lower()
+
+            return new_bb_gender
+
+        def bb_editbloodechoes():
+            print 'Please input how many bloodechoes (in game currency) you would like to start with (the Max is 1250)'
+            new_bb_bloodechoes = input("New Amount: ")
+
+            if new_bb_bloodechoes > 1250:
+                print 'Amount entered is to high. Bloodechoes have been set to 1250'
+                new_bb_bloodechoes = 1250
+
+            return new_bb_bloodechoes
+
+        def bb_editvitality():
+            print("What would you like to change the vitality stat too?")
+            print 'Current vitality stat: ', bb_vitality
+            new_bb_vitality = input('New Vitality stat: ')
+
+            if (bb_calcstats() - bb_vitality + new_bb_vitality) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_vitality = bb_vitality
+
+            return new_bb_vitality
+
+        def bb_editendurance():
+            print("What would you like to change the endurance stat too?")
+            print 'Current endurance stat: ', bb_endurance
+            new_bb_endurance = input('New Endurance stat: ')
+
+            if (bb_calcstats() - bb_endurance + new_bb_endurance) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_endurance = bb_endurance
+
+            return new_bb_endurance
+
+        def bb_editstrength():
+            print("What would you like to change the strength stat too?")
+            print 'Current strength stat: ', bb_strength
+            new_bb_strength = input('New Strength stat: ')
+
+            if (bb_calcstats() - bb_strength + new_bb_strength) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_strength = bb_strength
+
+            return new_bb_strength
+
+        def bb_editskill():
+            print("What would you like to change the skill stat too?")
+            print 'Current skill stat: ', bb_skill
+            new_bb_skill = input('New Skill stat: ')
+
+            if (bb_calcstats() - bb_skill + new_bb_skill) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_skill = bb_skill
+
+
+            return new_bb_skill
+
+        def bb_editbloodtinge():
+            print("What would you like to change the bloodtinge stat too?")
+            print 'Current bloodtinge stat: ', bb_bloodtinge
+            new_bb_bloodtinge = input('New Bloodtinge stat: ')
+
+            if (bb_calcstats() - bb_bloodtinge + new_bb_bloodtinge) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_bloodtinge = bb_bloodtinge
+
+
+            return new_bb_bloodtinge
+
+        def bb_editarcane():
+            print("What would you like to change the arcane stat too?")
+            print 'Current arcane stat: ', bb_arcane
+            new_bb_arcane = input('New Arcane stat: ')
+
+            if (bb_calcstats() - bb_arcane + new_bb_arcane) > 554:
+                print "you have surpassed the maximum amount of skill points"
+                new_bb_arcane = bb_arcane
+
+            return new_bb_arcane
+
+        def bb_edithealth():
+            bb_hphold = bb_vitality * 50
+
+            return bb_hphold
+
+        def bb_editstamina():
+            bb_staminahold = bb_endurance * 30
+
+            return bb_staminahold
+
+        def bb_editdiscovery():
+            bb_discoveryhold = bb_arcane * 10
+
+            return bb_discoveryhold
+
+        def bb_printtxt():
+
+            print 'Please input a file name for your Bloodborne Build: '
+            bb_filename = raw_input('File Name: ')
+
+            txt = open("%s.txt" % bb_filename, "w+")
+
+            txt.writelines('Bloodborne Build\n')
+            txt.writelines('***************\n')
+            txt.writelines('Name: ' + bb_name + "\n")
+            txt.writelines('Origin: ' + bb_origin + "\n")
+            txt.writelines('Gender: ' + bb_gender + "\n")
+            txt.writelines('Bloodechoes: %2d' % bb_bloodechoes + "\n")
+            txt.writelines('********** \n')
+            txt.writelines('Vitality: %2d' % bb_vitality + "\n")
+            txt.writelines('Endurance: %2d' % bb_endurance + "\n")
+            txt.writelines('Strength: %2d' % bb_strength + "\n")
+            txt.writelines('Skill: %2d' % bb_skill + "\n")
+            txt.writelines('Bloodtinge: %2d' % bb_bloodtinge + "\n")
+            txt.writelines('Arcane: %2d' % bb_arcane + "\n")
+            txt.writelines('HP: %2d' % bb_hp + "\n")
+            txt.writelines('Stamina: %2d' % bb_stamina + "\n")
+            txt.writelines('Discovery: %2d' % bb_discovery + "\n")
+            txt.writelines('********** \n')
+            txt.writelines('Rocket Propelled Generic Generator 2018 by Justin Smith \n')
+
+
+            txt.close()
+
+            print "Your Build has been saved to %s.txt" % bb_filename
+
+        print("BLOODBORNE")
+        print("***************")
+        print("***************")
+        bb_printstats()
+        print '(if you wish to exit the bloodborne generator and return to the menu, type "menu")'
+        while bb_input != "menu":
+            bb_input = raw_input()
+
+            bb_input = bb_input.lower()
+
+            if bb_input == "info":
+                bb_info()
+            elif bb_input == "stats":
+                bb_printstats()
+            elif bb_input == "name":
+                bb_name = bb_editname()
+            elif bb_input == "origin":
+                bb_origin = bb_editorigin()
+            elif bb_input == "gender":
+                bb_gender = bb_editgend()
+            elif bb_input == "bloodechoes":
+                bb_bloodechoes = bb_editbloodechoes()
+            elif bb_input == "vitality":
+                bb_vitality = bb_editvitality()
+                bb_hp = bb_edithealth()
+            elif bb_input == "endurance":
+                bb_endurance = bb_editendurance()
+                bb_stamina = bb_editstamina()
+            elif bb_input == "strength":
+                bb_strength = bb_editstrength()
+            elif bb_input == "skill":
+                bb_skill = bb_editskill()
+            elif bb_input == "bloodtinge":
+                bb_bloodtinge = bb_editbloodtinge()
+            elif bb_input == "arcane":
+                bb_arcane = bb_editarcane()
+                bb_discovery = bb_editdiscovery()
+            elif bb_input == "print":
+                bb_printtxt()
+
+
+
+
+
+
+
+
+#FALLOUT NEW VEGAS GENERATOR
+
+def fallout_vegas():
+    fnv_name = str("Courier")
+    fnv_gender = str("Male")
+    fnv_faction = str("NCR")
+    fnv_strength = 5
+    fnv_perception = 5
+    fnv_endurance = 5
+    fnv_charisma = 5
+    fnv_intel = 5
+    fnv_agility = 5
+    fnv_luck = 5
+    fnv_tagSkills = ["Melee Weapons", "Sneak", "Medicine"]
+    fnv_traits = ["Heavy Handed", "Kamikaze"]
+
+    def fnv_calc_points():
+        fnv_totalpoints = fnv_strength + fnv_perception + fnv_endurance + fnv_charisma + fnv_intel + fnv_agility + fnv_luck
+
+        return fnv_totalpoints
+
+    def fnv_info():
+        print '*****'
+        print 'Fallout New Vegas Generator Command List'
+        print '*****'
+        print '"menu" = Returns you to the RPG Generator menu'
+        print '"stats" = Redraw stats'
+        print '"points" = Displays available and distributed skill points'
+        print '"name" = Edit character name'
+        print '"gender" = Edit character gender'
+        print '"faction" = Edit character faction'
+        print '"strength" = Edit strength stat'
+        print '"perception" = Edit perception stat'
+        print '"endurance" = Edit endurance stat'
+        print '"charisma" = Edit charisma stat'
+        print '"intelligence" = Edit intelligence stat'
+        print '"agility" = Edit agility stat'
+        print '"luck" = Edit luck stat'
+        print '"skills" = Edit tagged skills'
+        print '"traits" = Edit starting traits'
+        print '"print" = Allows you to save your current build to a nameable .txt file'
+
+
+    def fnv_editname():
+        print("What would you like to change your character's name to?")
+        print 'Current Name: ', fnv_name
+        new_fnv_name = (raw_input('New Name: '))
+        print "you're character's name has been changed."
+        return new_fnv_name
+
+    def fnv_editgend():
+        print("What gender would you like your character to be?")
+        print 'Current Gender: ', fnv_gender
+        new_fnv_gender = raw_input('New Gender: ')
+
+        new_fnv_gender = new_fnv_gender.lower()
+
+        while new_fnv_gender != 'male' and new_fnv_gender != 'female':
+            print 'please input "male" or "female"'
+            new_fnv_gender = raw_input('New Gender: ')
+            new_fnv_gender = new_fnv_gender.lower()
+
+        return new_fnv_gender
+
+    def fnv_editfact():
+        print("What faction would you like your character to be part of?")
+        print('Type "options" instead of a faction name to display a list of available factions')
+        print 'Current Faction: ', fnv_faction
+        new_fnv_faction = raw_input('New Faction: ')
+
+        if new_fnv_faction == "options":
+            print 'Brotherhood of Steel = Type "bos"'
+            print 'Caesars Legion = Type "legion"'
+            print 'Great Khans = Type "khan"'
+            print 'NCR = Type "ncr"'
+            print 'Followers of the Apocalypse = Type "fota"'
+            print 'Boomers = Type "boomers"'
+            print 'Powder Gangers = Type "powder"'
+            print 'White Glove Society = Type "glove"'
+            new_fnv_faction = "None"
+
+        return new_fnv_faction
+
+    def fnv_editstrength():
+        print("What would you like to change the strength stat too?")
+        print 'Current strength stat: ', fnv_strength
+        new_fnv_strength = input('New Strength stat: ')
+
+        if new_fnv_strength > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_strength = 10
+
+        if (fnv_calc_points() - fnv_strength + new_fnv_strength) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_strength = fnv_strength
+
+        return new_fnv_strength
+
+    def fnv_editperception():
+        print("What would you like to change the perception stat too?")
+        print 'Current perception stat: ', fnv_perception
+        new_fnv_perception = input('New Perception stat: ')
+
+        if new_fnv_perception > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_perception = 10
+
+        if (fnv_calc_points() - fnv_perception + new_fnv_perception) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_perception = fnv_perception
+
+        return new_fnv_perception
+
+    def fnv_editendurance():
+        print("What would you like to change the endurance stat too?")
+        print 'Current endurance stat: ', fnv_endurance
+        new_fnv_endurance = input('New Endurance stat: ')
+
+        if new_fnv_endurance > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_endurance = 10
+
+        if (fnv_calc_points() - fnv_endurance + new_fnv_endurance) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_endurance = fnv_endurance
+
+        return new_fnv_endurance
+
+    def fnv_editcharisma():
+        print("What would you like to change the charisma stat too?")
+        print 'Current charisma stat: ', fnv_charisma
+        new_fnv_charisma = input('New Charisma stat: ')
+
+        if new_fnv_charisma > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_charisma = 10
+
+        if (fnv_calc_points() - fnv_charisma + new_fnv_charisma) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_charisma = fnv_charisma
+
+        return new_fnv_charisma
+
+    def fnv_editintelligence():
+        print("What would you like to change the intelligence stat too?")
+        print 'Current intelligence stat: ', fnv_intel
+        new_fnv_intel = input('New Intelligence stat: ')
+
+        if new_fnv_intel > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_intel = 10
+
+        if (fnv_calc_points() - fnv_intel + new_fnv_intel) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_intel = fnv_intel
+
+        return new_fnv_intel
+
+    def fnv_editagility():
+        print("What would you like to change the agility stat too?")
+        print 'Current agility stat: ', fnv_agility
+        new_fnv_agility = input('New Agility stat: ')
+
+        if new_fnv_agility > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_agility = 10
+
+        if (fnv_calc_points() - fnv_agility + new_fnv_agility) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_agility = fnv_agility
+
+        return new_fnv_agility
+
+    def fnv_editluck():
+        print("What would you like to change the luck stat too?")
+        print 'Current luck stat: ', fnv_luck
+        new_fnv_luck = input('New Luck stat: ')
+
+        if new_fnv_luck > 10:
+            print 'The maximum amount of points allowed for one skill is 10'
+            new_fnv_luck = 10
+
+        if (fnv_calc_points() - fnv_luck + new_fnv_luck) > 40:
+            print 'You have exceeded the total amount of skill points allowed (40)'
+            new_fnv_luck = fnv_luck
+
+        return new_fnv_luck
+
+    def fnv_editskills():
+        print("Which skill would you like to change?")
+        print 'Current skills: ', fnv_tagSkills
+        print 'to change', fnv_tagSkills[0], 'press "1"'
+        print 'to change', fnv_tagSkills[1], 'press "2"'
+        print 'to change', fnv_tagSkills[2], 'press "3"'
+        print 'to display a list of skills press "4"'
+        print 'to exit press "5"'
+
+        skillselect = 1
+
+        while skillselect != 5:
+            print " "
+            print "Input the number that corresponds to the skill you would like to edit:"
+            print "Type '4' for a list of skills in Fallout New Vegas"
+            skillselect = input()
+
+            if skillselect == 1:
+                print 'edit', fnv_tagSkills[0], 'to: '
+                fnv_tagSkills[0] = raw_input()
+            elif skillselect == 2:
+                print 'edit', fnv_tagSkills[1], 'to: '
+                fnv_tagSkills[1] = raw_input()
+            elif skillselect == 3:
+                print 'edit', fnv_tagSkills[2], 'to: '
+                fnv_tagSkills[2] = raw_input()
+            elif skillselect == 4:
+                print 'Fallout New Vegas Skills'
+                print '************************'
+                print 'Barter - Proficiency at trading and haggling. Also used to negotiate better quest rewards or occasionally as a bribe-like alternative to Speech. '
+                print 'Energy Weapons - Proficiency at using energy-based weapons. '
+                print 'Explosives - Proficiency at using explosive weaponry, disarming mines, and crafting explosives. '
+                print 'Guns - Proficiency at using weapons that fire standard ammunition. '
+                print 'Lockpick - Proficiency at picking locks. '
+                print 'Medicine - Proficiency at using medical tools, drugs, and for crafting Doctors Bags. '
+                print 'Melee Weapons - Proficiency at using melee weapons. '
+                print 'Repair - Proficiency at repairing items and crafting items and ammunition. '
+                print 'Science - Proficiency at hacking terminals, recycling energy ammunition at workbenches, crafting chems, and many dialog checks. '
+                print 'Sneak - Proficiency at remaining undetected and stealing. '
+                print 'Speech - Proficiency at persuading others. Also used to negotiate for better quest rewards and to talk your way out of combat, convincing people to give up vital information and succeeding in multiple speech checks. '
+                print 'Survival - Proficiency at cooking, making poisons, and crafting "natural" equipment and consumables. Also yields increased benefits from food. '
+                print 'Unarmed - Proficiency at unarmed fighting. '
+            elif skillselect == 5:
+                print 'exiting skill editing.'
+                print 'returned to FNV menu.'
+
+        return ""
+
+
+    def fnv_edittraits():
+        print("Which trait would you like to change?")
+        print 'Current traits: ', fnv_traits
+        print 'to change', fnv_traits[0], 'press "1"'
+        print 'to change', fnv_traits[1], 'press "2"'
+        print 'to display a list of traits press "3"'
+        print 'to exit press "4"'
+
+        traitselect = 1
+
+        while traitselect != 4:
+            print " "
+            print "Input the number that corresponds to the trait you would like to edit:"
+            print "Type '3' for a list of traits in Fallout New Vegas"
+            traitselect = input()
+
+            if traitselect == 1:
+                print 'edit', fnv_traits[0], 'to: '
+                fnv_traits[0] = raw_input()
+            elif traitselect == 2:
+                print 'edit', fnv_traits[1], 'to: '
+                fnv_traits[1] = raw_input()
+            elif traitselect == 3:
+                print 'Fallout New Vegas Traits'
+                print '************************'
+                print 'Built to Destroy - *Benefit: +3% critical hit chance. *Penalty: Weapon condition decays 15% faster. '
+                print 'Fast Shot - *Benefit: Guns and energy weapons you fire are 20% quicker, AP cost for your guns and energy weapons are 20% lower. *Penalty: Guns and energy weapons you fire are 20% less accurate. '
+                print 'Four Eyes - *Benefit: +2 Perception when wearing glasses. Bonus does not apply when determining Perk requirements. *Penalty: -1 Perception permanent reduction. Penalty will still apply when determining Perk requirements. '
+                print 'Good Natured - *Benefit: Increases Speech, Medicine, Repair, Science and Barter skills +5. *Penalty:  Decreases Energy Weapons, Explosives, Guns, Melee Weapons and Unarmed skills -5. '
+                print 'Heavy Handed - *Benefit: Melee and unarmed do 20% more damage. *Penalty: Melee and unarmed do 60% less critical hit damage. '
+                print 'Kamikaze - *Benefit: +10 Action Points.  *Penalty: -2 Damage Threshold. '
+                print 'Loose Cannon - *Benefit: Attack speed with thrown weapons increased by 30%. *Penalty: Thrown weapons have 25% less range. '
+                print 'Small Frame - *Benefit: +1 Agility. *Penalty: Fragile limbs (25% extra limb damage). '
+                print 'Trigger Discipline - *Benefit: Guns and energy weapons you fire are 20% more accurate. *Penalty: Guns and energy weapons you fire are 20% less quick, AP cost for your guns and energy weapons are 20% higher. '
+                print 'Wild Wasteland - *Benefit: Adds additional "wacky" content and modifies existing content and special encounters. *Penalty: Removes access to some "sane" content. '
+                print ''
+                print 'Old World Blues Expansion Traits'
+                print '************************'
+                print 'Claustrophobia - *Benefit: +1 to SPECIAL attributes while outdoors. *Penalty: -1 to SPECIAL attributes while indoors. '
+                print 'Early Bird- *Benefit: +2 to SPECIAL attributes from 6am to 12pm. *Penalty: -1 to SPECIAL attributes from 6pm to 6am. '
+                print 'Hoarder - *Benefit: +25 lbs to total carry weight. *Penalty: -1 to SPECIAL attributes while current equipment weight is below 160 lbs. '
+                print 'Hot Blooded - *Benefit: +15% damage increase while below 50% health. *Penalty: -2 to Perception and Agility while below 50% health. '
+                print "Logan's Loophole - *Benefit: Chems last twice as long and addiction rates are set to zero. *Penalty: Locks the level cap at 30. "
+                print 'Skilled - *Benefit: Gain +5 points to every skill. *Penalty: You suffer -10% from experience gained. '
+
+
+            elif traitselect == 4:
+                print 'exiting trait editing.'
+                print 'returned to FNV menu'
+
+        return ""
+
+    def fnv_printstats():
+        print 'Name: ', fnv_name
+        print 'Gender: ', fnv_gender
+        print 'Faction: ', fnv_faction
+        print("*********")
+        print "S.P.E.C.I.A.L:"
+        print 'Strength: ', fnv_strength
+        print 'Perception: ', fnv_perception
+        print 'Endurance: ', fnv_endurance
+        print 'Charisma: ', fnv_charisma
+        print 'Intelligence: ', fnv_intel
+        print 'Agility: ', fnv_agility
+        print 'Luck: ', fnv_luck
+        print 'Tagged Skills: ', fnv_tagSkills
+        print 'Starting Traits: ', fnv_traits
+        print ''
+        print 'Please choose what attributes you wish to edit'
+        print '(For a chart of commands that can be inputted, type "info")'
+
+    fnv_input = ""
+
+    def fnv_printtxt():
+
+        print 'Please input a file name for your Fallout New Vegas Build: '
+        fnv_filename = raw_input('File Name: ')
+
+        txt = open("%s.txt" % fnv_filename, "w+")
+
+        txt.writelines('Fallout New Vegas Character Build\n')
+        txt.writelines('***************\n')
+        txt.writelines('Name: ' + fnv_name + "\n")
+        txt.writelines('Gender: ' + fnv_gender + "\n")
+        txt.writelines('Faction: ' + fnv_faction + "\n")
+        txt.writelines('********** \n')
+        txt.writelines('S.P.E.C.I.A.L \n ')
+        txt.writelines('********** \n')
+        txt.writelines('Strength: %2d' % fnv_strength + "\n")
+        txt.writelines('Perception: %2d' % fnv_perception + "\n")
+        txt.writelines('Endurance: %2d' % fnv_endurance + "\n")
+        txt.writelines('Charisma: %2d' % fnv_charisma + "\n")
+        txt.writelines('Intelligence: %2d' % fnv_intel + "\n")
+        txt.writelines('Agility: %2d' % fnv_agility + "\n")
+        txt.writelines('Luck: %2d' % fnv_luck + "\n")
+        txt.writelines('Tagged Skills:  ' + fnv_tagSkills[0] + "  " + fnv_tagSkills [1] + "  " + fnv_tagSkills[2] + "\n")
+        txt.writelines('Starting Traits:  ' + fnv_traits[0] + "  " + fnv_traits[1] + "\n")
+        txt.writelines('********** \n')
+        txt.writelines('Rocket Propelled Generic Generator 2018 by Justin Smith \n')
+
+
+        txt.close()
+
+        print "Your Build has been saved to %s.txt" % fnv_filename
+
+
+
+
+
+
+
+    print("FALLOUT NEW VEGAS")
+    print("***************")
+    print("***************")
+    fnv_printstats()
+    print '(if you wish to exit the fallout new vegas generator and return to the menu, type "menu")'
+    while fnv_input != "menu":
+            fnv_input = raw_input()
+
+            fnv_input = fnv_input.lower()
+
+            if fnv_input == "info":
+                fnv_info()
+            elif fnv_input == "name":
+                fnv_name = fnv_editname()
+                print(fnv_name)
+            elif fnv_input == "gender":
+                fnv_gender = fnv_editgend()
+            elif fnv_input == "faction":
+                fnv_faction = fnv_editfact()
+            elif fnv_input == "strength":
+                fnv_strength = fnv_editstrength()
+            elif fnv_input == "perception":
+                fnv_perception = fnv_editperception()
+            elif fnv_input == "endurance":
+                fnv_endurance = fnv_editendurance()
+            elif fnv_input == "charisma":
+                fnv_charisma = fnv_editcharisma()
+            elif fnv_input == "intelligence":
+                fnv_intel = fnv_editintelligence()
+            elif fnv_input == "agility":
+                fnv_agility = fnv_editagility()
+            elif fnv_input == "luck":
+                fnv_luck = fnv_editluck()
+            elif fnv_input == "skills":
+                fnv_editskills()
+            elif fnv_input == "traits":
+                fnv_edittraits()
+            elif fnv_input == "stats":
+                fnv_printstats()
+            elif fnv_input == "points":
+                print 'Number of points available: ', 40 - fnv_calc_points()
+                print 'Points distributed: ', fnv_calc_points()
+            elif fnv_input == "print":
+                fnv_printtxt()
+            elif fnv_input == "war":
+                print 'War. War never changes.'
+                print 'It was here you were born. It is here you will die.'
+            elif fnv_input == "big iron":
+                print 'https://bit.ly/2Pg2k8s'
+            elif fnv_input == "van der linde":
+                print "By this time next year, we'll be growing mangoes in Tahiti."
+                print "We just need one more big score and we're gone."
+                print "Just have some goddamn faith!"
+                fnv_name = "Dutch van der Linde"
+                fnv_faction = "van der Linde gang"
+
+
+
+def gameselection():
+        gamenum = 0
+        print_menu()
+        while gamenum != 3:
+
+            gamenum = input('Input: ')
+
+            while gamenum > 3 or gamenum < 1:
+                print("please input a number that matches a game listed above")
+                break
+
+            if gamenum == 1:
+                bloodborne()
+            elif gamenum == 2:
+                fallout_vegas()
+            elif gamenum == 3:
+                break
+            print_menu()
+
+
+gameselection()
