@@ -4,9 +4,8 @@ BY: Justin Smith     FOR:CIS153-12
 ----------------------------------
 ----------------------------------
 This program is a base stat generator for Bloodborne and Fallout New Vegas.
-Using this generator, users will be able to create a specilized build by tweaking vanilla stats.
 
-INSTRUCTIONS
+Instructions
 -----------------------------
 After the program is started, users will be asked to select one of two games that they would
 like to use a generator for. Users can do this by typing "1" for the Bloodborne generator, typing "2" for the Fallout New Vegas, or typing "3" to exit the program.
@@ -47,4 +46,6 @@ Starting Traits
 Print Feature
 ----------------------------
 Each generator includes a print feature so users can save their created builds. To access the print feature, users must type "print". The user is able to input their own file name to save their build too. 
+
+
 
